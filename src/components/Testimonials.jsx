@@ -1,20 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // Import Remix Icons
 import "remixicon/fonts/remixicon.css";
 
 const Testimonials = () => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-  const paginationRef = useRef(null);
-  const swiperRef = useRef(null);
-
   // Sample testimonial data
   const testimonials = [
     {
@@ -83,7 +79,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="testimonials py-16">
+    <section className="testimonials py-16" id="testimonials">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-3xl font-bold mb-2">
           What Our Customers Say
@@ -99,45 +95,29 @@ const Testimonials = () => {
             spaceBetween={30}
             slidesPerView={1}
             navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
+              nextEl: ".testimonial-btn.next",
+              prevEl: ".testimonial-btn.prev",
             }}
-            // pagination={{
-            //   clickable: true,
-            //   el: paginationRef.current,
-            // }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            className="testimonials-swiper"
+            pagination={{
+              clickable: true,
+              hideOnClick: false,
+            }}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            speed={800}
             breakpoints={{
               640: { slidesPerView: 1, spaceBetween: 20 },
               768: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 30 },
             }}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = navigationPrevRef.current;
-              swiper.params.navigation.nextEl = navigationNextRef.current;
-              swiper.params.pagination.el = paginationRef.current;
-            }}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-              // Update swiper when refs are available
-              setTimeout(() => {
-                if (
-                  navigationPrevRef.current &&
-                  navigationNextRef.current &&
-                  paginationRef.current
-                ) {
-                  swiper.navigation.init();
-                  swiper.navigation.update();
-                  swiper.pagination.init();
-                  swiper.pagination.update();
-                }
-              }, 0);
-            }}
+            className="testimonials-swiper pb-14"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <div className="bg-white p-6 rounded-lg shadow-md h-[300px] flex flex-col">
+                <div className="bg-eerie-black-3 p-6 rounded-lg shadow-md h-[300px] flex flex-col border border-gray-100">
                   <div className="flex items-center mb-4">
                     <img
                       src={testimonial.image}
@@ -155,45 +135,26 @@ const Testimonials = () => {
                   </div>
                   <div className="flex mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <i
-                        key={i}
-                        className="ri-star-fill text-yellow-400 text-lg"
-                      ></i>
+                      <i key={i} className="ri-star-fill text-gold text-lg"></i>
                     ))}
                   </div>
-                  <p className="text-gray-700 italic flex-grow overflow-y-auto">
-                    <i className="ri-double-quotes-l text-gray-400 text-lg mr-1"></i>
+                  <p className="text-white italic flex-grow overflow-y-auto">
+                    <i className="ri-double-quotes-l text-gold text-lg mr-1"></i>
                     {testimonial.review}
-                    <i className="ri-double-quotes-r text-gray-400 text-lg ml-1"></i>
+                    <i className="ri-double-quotes-r text-gold text-lg ml-1"></i>
                   </p>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          <div className="testimonial-controls mt-10">
-            <div className="flex justify-center items-center mb-4">
-              <button
-                ref={navigationPrevRef}
-                className="mx-3 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-all"
-                onClick={() => swiperRef.current?.slidePrev()}
-              >
-                <i className="ri-arrow-left-s-line text-xl text-gray-700"></i>
-              </button>
-              <button
-                ref={navigationNextRef}
-                className="mx-3 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-all"
-                onClick={() => swiperRef.current?.slideNext()}
-              >
-                <i className="ri-arrow-right-s-line text-xl text-gray-700"></i>
-              </button>
-            </div>
-            <div
-              ref={paginationRef}
-              className="swiper-pagination flex justify-center mt-4"
-              style={{ position: "static" }}
-            ></div>
-          </div>
+          <button className="testimonial-btn prev absolute top-1/2 -left-6 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:block hidden">
+            <i className="ri-arrow-left-s-line text-2xl"></i>
+          </button>
+
+          <button className="testimonial-btn next absolute top-1/2 -right-6 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:block hidden">
+            <i className="ri-arrow-right-s-line text-2xl"></i>
+          </button>
         </div>
       </div>
     </section>

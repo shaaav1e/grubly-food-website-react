@@ -40,6 +40,14 @@ body.loaded {
   overflow: overlay;
 }
 
+/* Additional styles for nav active state */
+body.nav-active {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
 @keyframes loadingText {
   0% {
     background-position: 100%;
@@ -70,3 +78,86 @@ body.loaded {
   -webkit-text-stroke: 0.5px var(--color-eerie-black-3);
   animation: loadingText linear 2s infinite;
 }
+
+/* Hero Animations */
+@keyframes sliderReveal {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes smoothScale {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.hero-scale-animation {
+  animation: smoothScale 7s linear forwards;
+}
+
+.slider-reveal {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.swiper-slide-active .slider-reveal {
+  animation: sliderReveal 1s ease forwards;
+}
+
+.swiper-slide-active .slider-reveal:nth-child(1) { animation-delay: 500ms; }
+.swiper-slide-active .slider-reveal:nth-child(2) { animation-delay: 700ms; }
+.swiper-slide-active .slider-reveal:nth-child(3) { animation-delay: 1000ms; }
+.swiper-slide-active .slider-reveal:nth-child(4) { animation-delay: 1300ms; }
+.swiper-slide-active .slider-reveal:nth-child(5) { animation-delay: 1600ms; }
+
+.booking-btn-animation::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-gold);
+  animation: rotate360 15s linear infinite;
+}
+
+@layer utilities {
+  .text-gold {
+    color: var(--color-gold);
+  }
+  .bg-gold {
+    background-color: var(--color-gold);
+  }
+  .border-gold {
+    border-color: var(--color-gold);
+  }
+  .bg-eerie-black-1 {
+    background-color: var(--color-eerie-black-1);
+  }
+  .bg-black-alpha-80 {
+    background-color: var(--color-black-alpha-80);
+  }
+  .text-white-alpha-20 {
+    color: var(--color-white-alpha-20);
+  }
+}
+
+
+/* Adjust spacing for fixed header */
+.slider-content {
+  padding-top: 6rem; /* Adjust based on your header height */
+}
+
+/* Make main content start after hero section */
+main.mt-screen {
+  margin-top: 100vh;
+}
+
+/* Remove any background from header elements */
+.topbar, header, nav {
+  background-color: transparent !important;
+}
+
+

@@ -1,10 +1,150 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import LogoImage from "../assets/images/logo.svg";
+import Topbar from "./Topbar";
 
 const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const sideNavRef = useRef(null);
+
+  const navLinks = [
+    { title: "Home", path: "/" },
+    { title: "Menu", path: "/" },
+    { title: "About", path: "/" },
+    { title: "Contact", path: "/" },
+  ];
+
+  // Handle click outside to close nav
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        sideNavRef.current &&
+        !sideNavRef.current.contains(event.target) &&
+        isNavOpen
+      ) {
+        setIsNavOpen(false);
+      }
+    };
+
+    // Control body scroll
+    if (isNavOpen) {
+      document.body.classList.add("nav-active");
+    } else {
+      document.body.classList.remove("nav-active");
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("nav-active");
+    };
+  }, [isNavOpen]);
+
   return (
-    <header className="header">
-      <h1>Header Component</h1>
-    </header>
+    <>
+      <Topbar />
+
+      {/* Main navbar - completely transparent */}
+      <nav className="w-full py-4">
+        <div className="container flex justify-between items-center">
+          {/* Logo */}
+          <a className="w-40 h-auto" href="/">
+            <img src={LogoImage} alt="FoodLife Logo" />
+          </a>
+
+          {/* Mobile menu toggle */}
+          <i
+            className="ri-menu-3-fill text-3xl cursor-pointer md:hidden text-white"
+            onClick={() => setIsNavOpen(true)}
+          ></i>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex gap-6">
+              {navLinks.map((link) => (
+                <li
+                  key={link.title}
+                  className="border-b-2 border-transparent hover:border-gold"
+                >
+                  <a
+                    href={link.path}
+                    className="text-white hover:text-gold py-1 block"
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Mobile Navigation Sidebar */}
+          <div
+            className={`fixed inset-0 bg-black-alpha-80 z-50 md:hidden transition-opacity duration-300 ${
+              isNavOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            {/* Side Navigation Content */}
+            <div
+              ref={sideNavRef}
+              className={`w-[80%] max-w-[400px] h-full bg-[color:var(--color-eerie-black-2)] p-8 transition-transform duration-300 ${
+                isNavOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-8">
+                <a className="w-36 h-auto" href="/">
+                  <img src={LogoImage} alt="FoodLife Logo" />
+                </a>
+                <i
+                  className="ri-close-line text-3xl cursor-pointer text-white"
+                  onClick={() => setIsNavOpen(false)}
+                ></i>
+              </div>
+
+              {/* Additional text in mobile navbar */}
+              <div className="mb-8">
+                <p className="text-white text-lg mb-2">Welcome to</p>
+                <h3 className="text-gold text-2xl font-bold">
+                  Grilli Restaurant
+                </h3>
+              </div>
+
+              <nav>
+                <ul className="flex flex-col gap-4">
+                  {navLinks.map((link) => (
+                    <li key={link.title} className="border-b border-gold">
+                      <a
+                        href={link.path}
+                        className="text-white text-lg block py-2 hover:text-[color:var(--color-gold)] transition-colors"
+                        onClick={() => setIsNavOpen(false)}
+                      >
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* Extra information section for mobile */}
+              <div className=" pt-8  ">
+                <h4 className="text-white text-2xl font-bold mb-4">Visit Us</h4>
+                <div className="flex items-center  gap-2 mb-3 text-white-alpha-20">
+                  <i className="ri-map-pin-line text-gold"></i>
+                  <span className="text-sm">Islamabad, Blue Area</span>
+                </div>
+                <div className="flex items-center  gap-2 mb-3 text-white-alpha-20">
+                  <i className="ri-phone-line text-gold"></i>
+                  <span className="text-sm">+92 336 0018100</span>
+                </div>
+                <div className="flex items-center  gap-2 text-white-alpha-20">
+                  <i className="ri-mail-line text-gold"></i>
+                  <span className="text-sm">info@foodlife.com</span>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 

@@ -16,7 +16,7 @@ const Preloader = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-10 flex flex-col items-center justify-center bg-gold transition-transform duration-500 ease-in-out ${
+      className={`fixed inset-0 z-100 flex flex-col items-center justify-center bg-gold transition-transform duration-500 ease-in-out ${
         isLoaded ? "translate-y-full delay-250" : ""
       }`}
     >

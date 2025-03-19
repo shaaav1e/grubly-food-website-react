@@ -14,10 +14,17 @@ import Preloader from "./components/Preloader";
 function App() {
   return (
     <>
-      <Preloader />
-      <Header />
+      {/* <Preloader /> */}
+      {/* Hero section as background */}
+      <Hero />
+
+      {/* Header component - fixed on top with no background */}
+      <header className="fixed top-0 left-0 w-full z-30">
+        <Header />
+      </header>
+
+      {/* Main content */}
       <main>
-        <Hero />
         <Service />
         <About />
         <Menu />
@@ -25,8 +32,8 @@ function App() {
         <Reviews />
         <Feature />
         <Event />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }
