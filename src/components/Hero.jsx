@@ -109,7 +109,7 @@ const Hero = () => {
 
               <div className="w-12 h-1 bg-gold mx-auto my-4 rounded-full slider-reveal"></div>
 
-              <h1 className="text-[calc(0.5rem+5vw)]  slider-reveal">
+              <h1 className="!text-[calc(1.3rem+4vw)] font-bold leading-tight slider-reveal">
                 {item.title}
               </h1>
 
@@ -119,9 +119,9 @@ const Hero = () => {
 
               <a
                 href="#"
-                className="btn px-8 py-3 bg-gold text-black relative inline-block overflow-hidden hover:text-white transition-colors duration-500 mx-auto slider-reveal group mt-8"
+                className="btn font-bold px-8 py-3 bg-gold text-black relative inline-block overflow-hidden hover:text-white transition-colors duration-500 mx-auto slider-reveal group mt-8"
               >
-                <span className="relative z-10">View Our Menu</span>
+                <span className="relative z-10">Order Now</span>
                 <span className="absolute inset-0 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
               </a>
             </div>
