@@ -12,13 +12,13 @@ import Cursor from "./components/Cursor";
 function App() {
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       <Cursor />
       {/* Hero section as background */}
       <Hero />
 
       {/* Header component - fixed on top with no background */}
-      <header className="fixed top-0 left-0 w-full z-30">
+      <header className="fixed top-0 left-0 w-full z-20">
         <Header />
       </header>
 
@@ -28,7 +28,7 @@ function App() {
         <About />
         {/* <Menu /> */}
         <Testimonials />
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </main>
     </>

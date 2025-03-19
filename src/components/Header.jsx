@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import LogoImage from "../assets/images/logo.svg";
 import newLogo from "../assets/images/newlogo.svg";
 import Topbar from "./Topbar";
 
@@ -54,7 +53,7 @@ const Header = () => {
 
           {/* Mobile menu toggle */}
           <i
-            className="ri-menu-3-fill text-3xl cursor-pointer md:hidden text-white"
+            className="ri-menu-5-line text-3xl cursor-pointer md:hidden text-gold"
             onClick={() => setIsNavOpen(true)}
           ></i>
 
@@ -92,20 +91,12 @@ const Header = () => {
             >
               <div className="flex justify-between items-center mb-8">
                 <a className="w-36 h-auto" href="/">
-                  <img src={LogoImage} alt="FoodLife Logo" />
+                  <img src={newLogo} alt="FoodLife Logo" />
                 </a>
                 <i
-                  className="ri-close-line text-3xl cursor-pointer text-white"
+                  className="ri-close-line text-3xl cursor-pointer text-gold"
                   onClick={() => setIsNavOpen(false)}
                 ></i>
-              </div>
-
-              {/* Additional text in mobile navbar */}
-              <div className="mb-8">
-                <p className="text-white text-lg mb-2">Welcome to</p>
-                <h3 className="text-gold text-2xl font-bold">
-                  Grilli Restaurant
-                </h3>
               </div>
 
               <nav>
@@ -126,7 +117,9 @@ const Header = () => {
 
               {/* Extra information section for mobile */}
               <div className=" pt-8  ">
-                <h4 className="text-white text-2xl font-bold mb-4">Visit Us</h4>
+                <h4 className="text-white !text-3xl font-bold mb-4">
+                  Visit Us
+                </h4>
                 <div className="flex items-center  gap-2 mb-3 text-white-alpha-20">
                   <i className="ri-map-pin-line text-gold"></i>
                   <span className="text-sm">Islamabad, Blue Area</span>

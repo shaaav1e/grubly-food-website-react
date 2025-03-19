@@ -5,8 +5,8 @@ import Button from "./Button";
 
 const About = () => {
   return (
-    <section className="about bg-eerie-black-4">
-      <div className="container section-spacing pt-16 pb-16">
+    <section className="about bg-eerie-black-1">
+      <div className="container section-spacing pt-22 pb-22">
         <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16">
           <div className="flex flex-col items-center text-center gap-5 w-full md:w-1/2 px-4">
             <h1 className="uppercase">our story</h1>
@@ -23,7 +23,7 @@ const About = () => {
             {/* <Button text="BOOK NOW" /> */}
           </div>
           {/* Image */}
-          <div className="w-full md:w-1/2 h-[400px]">
+          <div className="max-w-[300px] md:max-w-[350px] lg:max-w-[650px] md:w-1/2 h-[450px]">
             <img
               className="w-full h-full object-cover rounded-lg shadow-lg shadow-gold"
               src={restaurant}
@@ -50,7 +50,7 @@ const About = () => {
             {/* <Button text="VIEW MENU" /> */}
           </div>
           {/* Second Image */}
-          <div className="w-full md:w-1/2 h-[400px]">
+          <div className="max-w-[300px] md:max-w-[350px] lg:max-w-[650px] md:w-1/2 h-[450px]">
             <img
               className="w-full h-full object-cover rounded-lg shadow-lg shadow-gold"
               src={restaurant2}

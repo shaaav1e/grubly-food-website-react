@@ -7,7 +7,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
       document.body.classList.add("loaded");
-    }, 2000);
+    }, 500);
 
     return () => {
       clearTimeout(timer);

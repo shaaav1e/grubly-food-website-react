@@ -1,4 +1,7 @@
 import React from "react";
+import Breakfast from "../assets/images/breakfast.jpg";
+import Lunch from "../assets/images/lunch.jpg";
+import Dinner from "../assets/images/dinner.jpg";
 
 const Service = () => {
   const mealOptions = [
@@ -6,30 +9,23 @@ const Service = () => {
       id: 1,
       title: "Breakfast? Yes, Please!",
       description: "Creamy oatmeal topped with fresh blueberries and honey",
-      image: "/src/assets/images/breakfast.jpg",
+      image: Breakfast,
       alt: "Breakfast meal",
     },
     {
       id: 2,
       title: "Lunch? Absolutely!",
       description: "Garlic butter pasta with parmesan and fresh herbs",
-      image: "/src/assets/images/lunch.jpg",
+      image: Lunch,
       alt: "Lunch meal",
     },
     {
       id: 3,
       title: "Dinner? Of Course!",
       description: "Perfectly seared steak with roasted vegetables",
-      image: "/src/assets/images/dinner.jpg",
+      image: Dinner,
       alt: "Dinner meal",
     },
-    // {
-    //   id: 4,
-    //   title: "Snacks? AnyTime!",
-    //   description: "Perfectly on empty stomach or in between meals",
-    //   image: "/src/assets/images/snacks.jpg",
-    //   alt: "Dinner meal",
-    // },
   ];
 
   return (
@@ -48,9 +44,10 @@ const Service = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {mealOptions.map((meal) => (
             <div key={meal.id} className="flex flex-col items-center">
-              <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[400px] aspect-square mt-5 relative cursor-pointer group">
+              <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[450px] aspect-square mt-5 relative cursor-pointer group">
                 {/* Static border with text */}
-                {/* <div className="absolute inset-0 border-4 border-dashed border-gold opacity-90 flex items-center justify-center"></div> */}
+                <div className="absolute inset-0 border border-dashed border-gold opacity-90 flex items-center justify-center"></div>
+
                 {/* Image container */}
                 <div className="absolute inset-4 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gold/30">
                   <img

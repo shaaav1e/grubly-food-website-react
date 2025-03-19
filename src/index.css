@@ -166,9 +166,20 @@ main.mt-screen {
 
 h1,h2,h3,h4,h5,h6
 {
-  @apply  text-gold text-sm font-bold;
+  @apply  text-gold font-bold;
 }
 .section-spacing
 {
   @apply mt-36;
+}
+p
+{
+  
+}
+
+/* FOOTER */
+.footer-bg
+{
+  background-image: url('/src/assets/images/footer-bg.jpg');
+  @apply bg-cover bg-center bg-no-repeat;
 }
