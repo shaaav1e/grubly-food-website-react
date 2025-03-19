@@ -2,9 +2,16 @@ import React from "react";
 
 const Service = () => {
   return (
-    <section className="service">
-      <h2>Service Component</h2>
-    </section>
+    <div>
+      <div className="container section-spacing text-center">
+        <h1 className="font-bold">Eat Well, Feel Great!</h1>
+        <p className="mt-3">
+          Whether it’s a power-packed breakfast, a refreshing lunch, or a cozy
+          dinner, we’ve got delicious options for every part of your day. Let’s
+          make every meal special!
+        </p>
+      </div>
+    </div>
   );
 };
 

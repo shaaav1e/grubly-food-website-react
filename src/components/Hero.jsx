@@ -109,7 +109,7 @@ const Hero = () => {
 
               <div className="w-12 h-1 bg-gold mx-auto my-4 rounded-full slider-reveal"></div>
 
-              <h1 className="text-[calc(1.3rem+6.7vw)] font-bold leading-tight slider-reveal">
+              <h1 className="text-[calc(0.5rem+5vw)]  slider-reveal">
                 {item.title}
               </h1>
 
