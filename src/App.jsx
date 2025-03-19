@@ -5,16 +5,15 @@ import Service from "./components/Service";
 import About from "./components/About";
 import Menu from "./components/Menu";
 import Testimonials from "./components/Testimonials";
-import Reviews from "./components/Reviews";
-import Feature from "./components/Feature";
-import Event from "./components/Event";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
-
+import Cursor from "./components/Cursor";
 function App() {
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
+      <Cursor />
       {/* Hero section as background */}
       <Hero />
 
@@ -27,11 +26,9 @@ function App() {
       <main>
         <Service />
         <About />
-        <Menu />
+        {/* <Menu /> */}
         <Testimonials />
-        <Reviews />
-        <Feature />
-        <Event />
+        <Contact />
         <Footer />
       </main>
     </>

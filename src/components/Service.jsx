@@ -1,50 +1,70 @@
 import React from "react";
 
 const Service = () => {
+  const mealOptions = [
+    {
+      id: 1,
+      title: "Breakfast? Yes, Please!",
+      description: "Creamy oatmeal topped with fresh blueberries and honey",
+      image: "/src/assets/images/breakfast.jpg",
+      alt: "Breakfast meal",
+    },
+    {
+      id: 2,
+      title: "Lunch? Absolutely!",
+      description: "Garlic butter pasta with parmesan and fresh herbs",
+      image: "/src/assets/images/lunch.jpg",
+      alt: "Lunch meal",
+    },
+    {
+      id: 3,
+      title: "Dinner? Of Course!",
+      description: "Perfectly seared steak with roasted vegetables",
+      image: "/src/assets/images/dinner.jpg",
+      alt: "Dinner meal",
+    },
+    // {
+    //   id: 4,
+    //   title: "Snacks? AnyTime!",
+    //   description: "Perfectly on empty stomach or in between meals",
+    //   image: "/src/assets/images/snacks.jpg",
+    //   alt: "Dinner meal",
+    // },
+  ];
+
   return (
     <div>
       <div className="container section-spacing">
         {/* Title Heading */}
         <div className="text-center">
-          <h1 className="font-bold">Eat Well, Feel Great!</h1>
-          <p className="mt-3">
-            Whether it’s a power-packed breakfast, a refreshing lunch, or a cozy
-            dinner, we’ve got delicious options for every part of your day.
-            Let’s make every meal special!
+          <h1 className="">Morning Bites, Midday Delights, Evening Feasts</h1>
+          <p className="mt-5 text-2xl forum ">
+            Whether it's a power-packed breakfast, a refreshing lunch, or a cozy
+            dinner, we've got delicious options for every part of your day.
+            Let's make every meal special!
           </p>
         </div>
         {/* Images and Titles */}
-        <div className="flex flex-col md:flex-row justify-center gap-24 mt-10">
-          <div>
-            <p className="text-center font-bold text-xl mt-5 text-gold">
-              Breakfast? Yes, Please!
-            </p>
-            <img
-              className="rounded-full mt-5"
-              src="/src/assets/images/breakfast.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <p className="text-center font-bold text-xl mt-5 text-gold">
-              Lunch? Absolutely!
-            </p>
-            <img
-              className="rounded-full mt-5"
-              src="/src/assets/images/lunch.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <p className="text-center font-bold text-xl mt-5 text-gold">
-              Dinner? Of Course!
-            </p>
-            <img
-              className="rounded-full mt-5"
-              src="/src/assets/images/dinner.jpg"
-              alt=""
-            />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+          {mealOptions.map((meal) => (
+            <div key={meal.id} className="flex flex-col items-center">
+              <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[400px] aspect-square mt-5 relative cursor-pointer group">
+                {/* Static border with text */}
+                {/* <div className="absolute inset-0 border-4 border-dashed border-gold opacity-90 flex items-center justify-center"></div> */}
+                {/* Image container */}
+                <div className="absolute inset-4 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gold/30">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-3"
+                    src={meal.image}
+                    alt={meal.alt}
+                  />
+                </div>
+              </div>
+              <p className="text-center forum font-bold text-3xl mt-5 text-white">
+                {meal.title}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@
     transparent 66.66% 75%
   );
   --font-family-dm-sans: 'DM Sans', sans-serif;
+  --fontFamily-forum: 'Forum', cursive;
   --container-width:80%;
 }
 .container
@@ -35,7 +36,10 @@ body {
   font-family: var(--font-family-dm-sans);
   @apply text-white bg-eerie-black-1;
 }
-
+.forum
+{
+  font-family: var(--fontFamily-forum);
+}
 body.loaded {
   overflow: overlay;
 }
@@ -162,9 +166,9 @@ main.mt-screen {
 
 h1,h2,h3,h4,h5,h6
 {
-  @apply font-bold text-gold text-3xl;
+  @apply  text-gold text-sm font-bold;
 }
 .section-spacing
 {
-  @apply mt-5;
+  @apply mt-36;
 }

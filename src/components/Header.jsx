@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import LogoImage from "../assets/images/logo.svg";
+import newLogo from "../assets/images/newlogo.svg";
 import Topbar from "./Topbar";
 
 const Header = () => {
@@ -44,11 +45,11 @@ const Header = () => {
       <Topbar />
 
       {/* Main navbar - completely transparent */}
-      <nav className="w-full py-4">
+      <nav className="w-full ">
         <div className="container flex justify-between items-center">
           {/* Logo */}
           <a className="w-40 h-auto" href="/">
-            <img src={LogoImage} alt="FoodLife Logo" />
+            <img src={newLogo} alt="FoodLife Logo" />
           </a>
 
           {/* Mobile menu toggle */}
