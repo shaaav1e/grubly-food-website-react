@@ -52,6 +52,10 @@ body.nav-active {
   width: 100%;
 }
 
+
+
+
+/* Animations */
 @keyframes loadingText {
   0% {
     background-position: 100%;
@@ -100,6 +104,7 @@ body.nav-active {
   100% { transform: scale(1.15); }
 }
 
+/* Hero */
 .hero-scale-animation {
   animation: smoothScale 7s linear forwards;
 }
@@ -127,6 +132,7 @@ body.nav-active {
   animation: rotate360 15s linear infinite;
 }
 
+/* Need to be removed */
 @layer utilities {
   .text-gold {
     color: var(--color-gold);
@@ -164,9 +170,11 @@ main.mt-screen {
   background-color: transparent !important;
 }
 
+/* Utility */
 h1,h2,h3,h4,h5,h6
 {
-  @apply  text-gold font-bold;
+  @apply  text-gold font-bold text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl;
+  font-family: var(--fontFamily-forum);
 }
 .section-spacing
 {
@@ -177,9 +185,41 @@ p
   
 }
 
+
+
 /* FOOTER */
-.footer-bg
-{
-  background-image: url('/src/assets/images/footer-bg.jpg');
+.footer-bg {
+  position: relative;
   @apply bg-cover bg-center bg-no-repeat;
 }
+
+.footer-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay with 70% opacity */
+  z-index: 1;
+}
+
+.footer-bg > * {
+  position: relative;
+  z-index: 2; /* Make sure the content is above the overlay */
+}
+
+.footer-bg {
+  background-image: url('/src/assets/images/footer-bg-2.jpg');
+}
+
+/* Input for Contact */
+input,textarea
+{
+  @apply rounded-sm border border-white/30 bg-black-alpha-80 text-white p-4 mt-4;
+}
+input::placeholder,textarea::placeholder
+{
+  @apply text-white rounded-sm focus:outline-none ;
+}
+

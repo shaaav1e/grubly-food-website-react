@@ -4,6 +4,7 @@ import Topbar from "./Topbar";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const sideNavRef = useRef(null);
 
   const navLinks = [
@@ -12,6 +13,23 @@ const Header = () => {
     { title: "About", path: "/" },
     { title: "Contact", path: "/" },
   ];
+
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Handle click outside to close nav
   useEffect(() => {
@@ -41,10 +59,15 @@ const Header = () => {
 
   return (
     <>
-      <Topbar />
+      {/* Topbar is only visible when not scrolled */}
+      {!isScrolled && <Topbar />}
 
-      {/* Main navbar - completely transparent */}
-      <nav className="w-full ">
+      {/* Main navbar - fixed and with background when scrolled */}
+      <nav
+        className={`w-full ${
+          isScrolled ? "fixed top-0 left-0 right-0 z-40 !bg-eerie-black-4" : ""
+        } transition-all duration-300`}
+      >
         <div className="container flex justify-between items-center">
           {/* Logo */}
           <a className="w-40 h-auto" href="/">

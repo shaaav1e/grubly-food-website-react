@@ -8,6 +8,9 @@ import "swiper/css/pagination";
 import heroSlider1 from "../assets/images/hero-slider-1.jpg";
 import heroSlider2 from "../assets/images/hero-slider-2.jpg";
 import heroSlider3 from "../assets/images/hero-slider-3.jpg";
+import heroSlider4 from "../assets/images/hero-slider-4.jpg";
+import heroSlider5 from "../assets/images/hero-slider-5.jpg";
+import heroSlider6 from "../assets/images/hero-slider-6.jpg";
 import heroIcon from "../assets/images/hero-icon.png";
 // Import Remix icons for navigation
 import "remixicon/fonts/remixicon.css";
@@ -26,7 +29,7 @@ const Hero = () => {
       text: "Come with family & feel the joy of mouthwatering food",
     },
     {
-      image: heroSlider2,
+      image: heroSlider5,
       subtitle: "delightful experience",
       title: (
         <>
@@ -37,7 +40,7 @@ const Hero = () => {
       text: "Come with family & feel the joy of mouthwatering food",
     },
     {
-      image: heroSlider3,
+      image: heroSlider6,
       subtitle: "amazing & delicious",
       title: (
         <>
