@@ -11,20 +11,10 @@ export default defineConfig({
     imagetools(),
     tailwindcss(),
     viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      mozjpeg: {
-        quality: 75, // Optimize JPEG images
-      },
-      optipng: {
-        optimizationLevel: 7, // Optimize PNG images
-      },
       webp: {
-        quality: 75, // Optimize WebP images
+        quality: 75, // Adjust quality as needed
       },
-    }),
+    }), // Use the imagetools plugin for image optimization
   ],
   build: {
     // Minification options
