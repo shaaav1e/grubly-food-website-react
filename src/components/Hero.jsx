@@ -101,6 +101,7 @@ const Hero = () => {
                 src={item.image}
                 alt="Hero Background"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             </div>
