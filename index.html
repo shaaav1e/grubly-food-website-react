@@ -2,23 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/src/assets/images/newlogo.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/newlogo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FOODBITES</title>
+    <title>FOODBITES | Delicious Food Experience</title>
+
+    <!-- Meta descriptions for SEO and previews -->
+    <meta
+      name="description"
+      content="FOODBITES - For the love of delicious food. Experience traditional & hygienic food with your family."
+    />
+    <meta name="theme-color" content="#d99904" />
+
+    <!-- Cache control -->
+    <meta http-equiv="Cache-Control" content="max-age=86400" />
+
+    <!-- Preconnect to domains used in your site -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- FONTS -->
+
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- FONTS with display=swap for better performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <!-- Preload critical assets -->
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/images/hero-slider-1.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/dmsans/v11/rP2Hp2ywxg089UriCZOIHTWEBlw.woff2"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="style" href="/src/index.css" />
+
+    <!-- Add PWA support -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+
+    <!-- Add fetchpriority hints -->
+    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width" />
+    <meta name="image-rendering" content="auto" />
+
+    <!-- Improve LCP -->
+    <script type="module">
+      // Inform browser which elements are LCP candidates
+      const lcpObserver = new PerformanceObserver((entryList) => {
+        // Get the first entry
+        const entries = entryList.getEntries();
+        if (entries[0]) {
+          console.log("LCP element:", entries[0].element);
+        }
+      });
+      lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Defer non-critical JavaScript -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

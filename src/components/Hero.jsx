@@ -5,12 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import heroSlider1 from "../assets/images/hero-slider-1.jpg";
-import heroSlider2 from "../assets/images/hero-slider-2.jpg";
-import heroSlider3 from "../assets/images/hero-slider-3.jpg";
-import heroSlider4 from "../assets/images/hero-slider-4.jpg";
-import heroSlider5 from "../assets/images/hero-slider-5.jpg";
-import heroSlider6 from "../assets/images/hero-slider-6.jpg";
+import heroSlider1 from "../assets/images/hero-slider-1.jpg?webp"; // Add ?webp query
+import heroSlider5 from "../assets/images/hero-slider-5.jpg?webp"; // Add ?webp query
+import heroSlider6 from "../assets/images/hero-slider-6.jpg?webp"; // Add ?webp query
 import heroIcon from "../assets/images/hero-icon.png";
 // Import Remix icons for navigation
 import "remixicon/fonts/remixicon.css";
@@ -18,7 +15,8 @@ import "remixicon/fonts/remixicon.css";
 const Hero = () => {
   const sliderItems = [
     {
-      image: heroSlider1,
+      image: heroSlider1, // Use the WebP version
+      webp: heroSlider1.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "Traditional & Hygiene",
       title: (
         <>
@@ -29,7 +27,8 @@ const Hero = () => {
       text: "Come with family & feel the joy of mouthwatering food",
     },
     {
-      image: heroSlider5,
+      image: heroSlider5, // Use the WebP version
+      webp: heroSlider5.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "delightful experience",
       title: (
         <>
@@ -40,7 +39,8 @@ const Hero = () => {
       text: "Come with family & feel the joy of mouthwatering food",
     },
     {
-      image: heroSlider6,
+      image: heroSlider6, // Use the WebP version
+      webp: heroSlider6.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "amazing & delicious",
       title: (
         <>
@@ -97,12 +97,16 @@ const Hero = () => {
         {sliderItems.map((item, index) => (
           <SwiperSlide key={index} className="hero-slide">
             <div className="slider-bg absolute inset-0 scale-[1.15] pointer-events-none select-none z-[-1] hero-scale-animation">
-              <img
-                src={item.image}
-                alt="Hero Background"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={item.webp} type="image/webp" />
+                <img
+                  src={item.image}
+                  alt="Hero Background"
+                  className="w-full h-full object-cover"
+                  loading={index === 0 ? "eager" : "lazy"} // Preload the first image
+                  fetchpriority={index === 0 ? "high" : undefined} // Preload the first image
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             </div>
 

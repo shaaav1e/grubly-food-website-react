@@ -7,9 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// Import Remix Icons
-import "remixicon/fonts/remixicon.css";
-
 const Testimonials = () => {
   // Create a ref to store the Swiper instance
   const swiperRef = useRef(null);
@@ -17,7 +14,7 @@ const Testimonials = () => {
   // State to track active slide index
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Sample testimonial data
+  // Sample testimonial data with optimized data structure
   const testimonials = [
     {
       id: 1,
@@ -30,7 +27,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Michael ",
       position: "Regular Customer",
       image: "https://randomuser.me/api/portraits/men/44.jpg",
       rating: 5,
@@ -48,7 +45,7 @@ const Testimonials = () => {
     },
     {
       id: 4,
-      name: "David Rodriguez",
+      name: " Rodriguez",
       position: "Chef",
       image: "https://randomuser.me/api/portraits/men/29.jpg",
       rating: 5,
@@ -66,7 +63,7 @@ const Testimonials = () => {
     },
     {
       id: 6,
-      name: "Robert Smith",
+      name: " Smith",
       position: "Restaurant Owner",
       image: "https://randomuser.me/api/portraits/men/35.jpg",
       rating: 5,
@@ -77,24 +74,9 @@ const Testimonials = () => {
 
   // Function to handle pagination dot clicks
   const handlePaginationClick = (index) => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      // Slide to the selected index
+    if (swiperRef.current?.swiper) {
       swiperRef.current.swiper.slideTo(index);
-      // Update active index
       setActiveIndex(index);
-    }
-  };
-
-  // Functions to handle navigation button clicks
-  const handlePrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
     }
   };
 
@@ -124,6 +106,10 @@ const Testimonials = () => {
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="testimonials-swiper"
+            navigation={{
+              nextEl: ".testimonial-btn-next",
+              prevEl: ".testimonial-btn-prev",
+            }}
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
@@ -133,6 +119,9 @@ const Testimonials = () => {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-14 h-14 rounded-full object-cover mr-4"
+                      loading="lazy"
+                      width="56"
+                      height="56"
                     />
                     <div>
                       <h4 className="font-semibold text-lg">
@@ -148,7 +137,7 @@ const Testimonials = () => {
                       <i key={i} className="ri-star-fill text-gold text-lg"></i>
                     ))}
                   </div>
-                  <p className="text-white italic flex-grow overflow-y-auto">
+                  <p className="text-white italic flex-grow overflow-y-auto !text-sm">
                     <i className="ri-double-quotes-l text-gold text-lg mr-1"></i>
                     {testimonial.review}
                     <i className="ri-double-quotes-r text-gold text-lg ml-1"></i>
@@ -178,15 +167,15 @@ const Testimonials = () => {
 
           {/* Simple Navigation Buttons */}
           <button
-            onClick={handlePrev}
-            className="absolute top-1/2 -left-6 lg:-left-10 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:flex hidden"
+            className="testimonial-btn-prev absolute top-1/2 -left-6 lg:-left-10 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:flex hidden"
+            aria-label="Previous testimonial"
           >
             <i className="ri-arrow-left-s-line text-2xl"></i>
           </button>
 
           <button
-            onClick={handleNext}
-            className="absolute top-1/2 -right-6 lg:-right-10 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:flex hidden"
+            className="testimonial-btn-next absolute top-1/2 -right-6 lg:-right-10 z-10 w-12 h-12 flex items-center justify-center text-white bg-gold rounded-full hover:bg-black hover:text-gold transition-all duration-300 -translate-y-8 md:flex hidden"
+            aria-label="Next testimonial"
           >
             <i className="ri-arrow-right-s-line text-2xl"></i>
           </button>

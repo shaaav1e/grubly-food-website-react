@@ -13,7 +13,9 @@ const Topbar = () => {
             {/* Center content - Open hours */}
             <div className="flex items-center absolute left-1/2 transform -translate-x-1/2">
               <i className="ri-time-line text-gold mr-2"></i>
-              <span className="text-xl font-bold">Daily: 12am to 12.00 pm</span>
+              <span className="text-base font-bold">
+                Daily: 12am to 12.00 pm
+              </span>
             </div>
 
             {/* Social icons in gold - right aligned */}

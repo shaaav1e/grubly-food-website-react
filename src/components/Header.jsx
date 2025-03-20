@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import newLogo from "../assets/images/newlogo.svg";
+import newLogo from "../assets/images/newlogo.svg?webp"; // Add ?webp query
 import Topbar from "./Topbar";
 
 const Header = () => {
@@ -71,7 +71,16 @@ const Header = () => {
         <div className="container flex justify-between items-center">
           {/* Logo */}
           <a className="w-40 h-auto" href="/">
-            <img src={newLogo} alt="FoodLife Logo" />
+            <picture>
+              <source srcSet={newLogo} type="image/webp" />
+              <img
+                src={newLogo.replace(".webp", ".svg")} // Fallback to original SVG
+                alt="FoodLife Logo"
+                width="160" // Add explicit width
+                height="40" // Add explicit height
+                loading="lazy"
+              />
+            </picture>
           </a>
 
           {/* Mobile menu toggle */}
@@ -114,7 +123,16 @@ const Header = () => {
             >
               <div className="flex justify-between items-center mb-8">
                 <a className="w-36 h-auto" href="/">
-                  <img src={newLogo} alt="FoodLife Logo" />
+                  <picture>
+                    <source srcSet={newLogo} type="image/webp" />
+                    <img
+                      src={newLogo.replace(".webp", ".svg")} // Fallback to original SVG
+                      alt="FoodLife Logo"
+                      width="144" // Add explicit width
+                      height="36" // Add explicit height
+                      loading="lazy"
+                    />
+                  </picture>
                 </a>
                 <i
                   className="ri-close-line text-3xl cursor-pointer text-gold"
