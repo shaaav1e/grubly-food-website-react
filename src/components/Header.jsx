@@ -70,8 +70,8 @@ const Header = () => {
       >
         <div className="container flex justify-between items-center">
           {/* Logo */}
-          <a className="w-40 h-auto" href="/">
-            <picture>
+          <a className="w-40 h-auto text-gold font-bold text-2xl" href="/">
+            {/* <picture>
               <source srcSet={newLogo} type="image/webp" />
               <img
                 src={newLogo.replace(".webp", ".svg")} // Fallback to original SVG
@@ -80,7 +80,8 @@ const Header = () => {
                 height="40" // Add explicit height
                 loading="lazy"
               />
-            </picture>
+            </picture> */}
+            FOODBITES
           </a>
 
           {/* Mobile menu toggle */}
