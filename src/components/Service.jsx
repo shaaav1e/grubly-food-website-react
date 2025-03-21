@@ -1,7 +1,7 @@
 import React from "react";
-import Breakfast from "../assets/images/breakfast.jpg?webp"; // Add ?webp query
-import Lunch from "../assets/images/lunch.jpg?webp"; // Add ?webp query
-import Dinner from "../assets/images/dinner.jpg?webp"; // Add ?webp query
+import Breakfast from "../assets/images/breakfast.webp"; 
+import Lunch from "../assets/images/lunch.webp"; 
+import Dinner from "../assets/images/dinner.webp"; 
 
 const Service = () => {
   const mealOptions = [
@@ -10,7 +10,7 @@ const Service = () => {
       title: "Breakfast? Yes, Please!",
       description: "Creamy oatmeal topped with fresh blueberries and honey",
       image: Breakfast, // Use the WebP version
-      webp: Breakfast.replace(".jpg", ".webp"), // Fix path to use the imported asset
+     
       alt: "Breakfast meal",
     },
     {
@@ -18,7 +18,6 @@ const Service = () => {
       title: "Lunch? Absolutely!",
       description: "Garlic butter pasta with parmesan and fresh herbs",
       image: Lunch, // Use the WebP version
-      webp: Lunch.replace(".jpg", ".webp"), // Fix path to use the imported asset
       alt: "Lunch meal",
     },
     {
@@ -26,7 +25,6 @@ const Service = () => {
       title: "Dinner? Of Course!",
       description: "Perfectly seared steak with roasted vegetables",
       image: Dinner, // Use the WebP version
-      webp: Dinner.replace(".jpg", ".webp"), // Fix path to use the imported asset
       alt: "Dinner meal",
     },
   ];
@@ -54,7 +52,7 @@ const Service = () => {
                 {/* Image container */}
                 <div className="absolute inset-4 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gold/30">
                   <picture>
-                    <source srcSet={meal.webp} type="image/webp" />
+                    {/* <source srcSet={meal.webp} type="image/webp" /> */}
                     <img
                       className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-3"
                       src={meal.image}

@@ -5,18 +5,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import heroSlider1 from "../assets/images/hero-slider-1.jpg?webp"; // Add ?webp query
-import heroSlider5 from "../assets/images/hero-slider-5.jpg?webp"; // Add ?webp query
-import heroSlider6 from "../assets/images/hero-slider-6.jpg?webp"; // Add ?webp query
+import heroSlider1 from "../assets/images/hero-slider-1.webp"; 
+import heroSlider5 from "../assets/images/hero-slider-5.webp"; 
+import heroSlider6 from "../assets/images/hero-slider-6.webp"; 
 import heroIcon from "../assets/images/hero-icon.png";
-// Import Remix icons for navigation
-import "remixicon/fonts/remixicon.css";
+
 
 const Hero = () => {
   const sliderItems = [
     {
       image: heroSlider1, // Use the WebP version
-      webp: heroSlider1.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "Traditional & Hygiene",
       title: (
         <>
@@ -28,7 +26,6 @@ const Hero = () => {
     },
     {
       image: heroSlider5, // Use the WebP version
-      webp: heroSlider5.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "delightful experience",
       title: (
         <>
@@ -40,7 +37,6 @@ const Hero = () => {
     },
     {
       image: heroSlider6, // Use the WebP version
-      webp: heroSlider6.replace(".jpg", ".webp"), // Fix path to use the imported asset
       subtitle: "amazing & delicious",
       title: (
         <>
@@ -98,7 +94,7 @@ const Hero = () => {
           <SwiperSlide key={index} className="hero-slide">
             <div className="slider-bg absolute inset-0 scale-[1.15] pointer-events-none select-none z-[-1] hero-scale-animation">
               <picture>
-                <source srcSet={item.webp} type="image/webp" />
+                {/* <source srcSet={item.webp} type="image/webp" /> */}
                 <img
                   src={item.image}
                   alt="Hero Background"

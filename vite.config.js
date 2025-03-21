@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { imagetools } from "vite-imagetools";
 import viteImagemin from "vite-plugin-imagemin";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -8,13 +7,12 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [
     react(),
-    imagetools(),
     tailwindcss(),
     viteImagemin({
       webp: {
-        quality: 75, // Adjust quality as needed
+        quality: 75, // quality to increase Lighthouse score
       },
-    }), // Use the imagetools plugin for image optimization
+    }), 
   ],
   build: {
     // Minification options

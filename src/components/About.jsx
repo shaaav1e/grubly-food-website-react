@@ -1,6 +1,6 @@
 import React from "react";
-import restaurant from "../assets/images/restaurant.jpg"; // Ensure this path is correct
-import restaurant2 from "../assets/images/restaurant-2.jpg"; // Added import for second image
+import restaurant from "../assets/images/restaurant.webp"; 
+import restaurant2 from "../assets/images/restaurant-2.webp"; 
 import Button from "./Button";
 
 const About = () => {

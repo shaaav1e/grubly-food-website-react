@@ -12,7 +12,7 @@ import Cursor from "./components/Cursor";
 function App() {
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
       <Cursor />
       {/* Hero section as background */}
       <Hero />
@@ -27,7 +27,7 @@ function App() {
         <Service />
         <About />
         {/* <Menu /> */}
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
         <Footer />
       </main>
