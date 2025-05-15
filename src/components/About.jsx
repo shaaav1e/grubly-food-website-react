@@ -28,7 +28,6 @@ const About = () => {
               className="w-full h-full object-cover rounded-lg shadow-lg shadow-gold"
               src={restaurant}
               alt="Restaurant interior"
-              loading="lazy"
             />
           </div>
         </div>
@@ -56,7 +55,6 @@ const About = () => {
               className="w-full h-full object-cover rounded-lg shadow-lg shadow-gold"
               src={restaurant2}
               alt="Restaurant ambiance"
-              loading="lazy"
             />
           </div>
         </div>

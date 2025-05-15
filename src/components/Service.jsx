@@ -46,24 +46,35 @@ const Service = () => {
           {mealOptions.map((meal) => (
             <div key={meal.id} className="flex flex-col items-center">
               <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[450px] aspect-square mt-5 relative cursor-pointer group">
+                {" "}
                 {/* Static border with text */}
-                <div className="absolute inset-0  opacity-90 flex items-center justify-center"></div>
-
-                {/* Image container */}
-                <div className="absolute inset-4 overflow-hidden transition-all duration-500 ">
+                <div className="absolute inset-0 border-2 border-amber-200 opacity-90 flex items-center justify-center"></div>
+                {/* Image container */}{" "}
+                <div className="absolute inset-4 overflow-hidden transition-all duration-500">
                   <picture>
-                    {/* <source srcSet={meal.webp} type="image/webp" /> */}
+                    <source
+                      srcSet={meal.image}
+                      type="image/webp"
+                      sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, 450px"
+                    />
                     <img
                       className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-3"
                       src={meal.image}
                       alt={meal.alt}
+                      width="450"
+                      height="450"
                     />
                   </picture>
                 </div>
+              </div>{" "}
+              <div className="text-center mt-5">
+                <p className="forum font-bold text-3xl text-white">
+                  {meal.title}
+                </p>
+                <p className="mt-2 text-amber-100 max-w-[300px] mx-auto">
+                  {meal.description}
+                </p>
               </div>
-              <p className="text-center forum font-bold text-3xl mt-5 text-white">
-                {meal.title}
-              </p>
             </div>
           ))}
         </div>
