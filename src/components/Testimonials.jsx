@@ -133,7 +133,7 @@ const Testimonials = () => {
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-14 h-14 rounded-full object-cover mr-4"
-                      lazy="loading"
+                     
                     />
                     <div>
                       <h4 className="font-semibold text-lg">

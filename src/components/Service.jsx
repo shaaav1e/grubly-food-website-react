@@ -57,7 +57,7 @@ const Service = () => {
                       className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-3"
                       src={meal.image}
                       alt={meal.alt}
-                      loading="lazy"
+                      
                     />
                   </picture>
                 </div>

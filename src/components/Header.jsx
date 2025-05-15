@@ -131,7 +131,7 @@ const Header = () => {
                       alt="FoodLife Logo"
                       width="144" //  explicit width
                       height="36" //  explicit height
-                      loading="lazy"
+                      
                     />
                   </picture>
                 </a>
