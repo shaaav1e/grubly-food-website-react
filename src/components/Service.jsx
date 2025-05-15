@@ -50,7 +50,7 @@ const Service = () => {
                 <div className="absolute inset-0  opacity-90 flex items-center justify-center"></div>
 
                 {/* Image container */}
-                <div className="absolute inset-4 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gold/30">
+                <div className="absolute inset-4 overflow-hidden transition-all duration-500 ">
                   <picture>
                     {/* <source srcSet={meal.webp} type="image/webp" /> */}
                     <img
