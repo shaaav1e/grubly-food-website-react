@@ -1,6 +1,50 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css";
+
 const Footer = () => {
+  const socialLinks = [
+    { icon: "ri-facebook-fill", url: "#", ariaLabel: "Facebook" },
+    { icon: "ri-instagram-line", url: "#", ariaLabel: "Instagram" },
+    { icon: "ri-youtube-fill", url: "#", ariaLabel: "YouTube" },
+  ];
+
+  const contactInfo = [
+    {
+      icon: "ri-map-pin-fill",
+      content: "123 Culinary Avenue, Gourmet District, NY 10001",
+      type: "text",
+    },
+    {
+      icon: "ri-phone-fill",
+      content: "+92 (336) 0018100",
+      url: "tel:+923360018100",
+      type: "link",
+    },
+    {
+      icon: "ri-mail-fill",
+      content: "shaaavie@gmail.com",
+      url: "mailto:shaaavie@gmail.com",
+      type: "link",
+    },
+    {
+      icon: "ri-time-fill",
+      content: ["Mon-Fri: 10:00 AM - 12:00 PM", "Sat-Sun: 8:00 AM - 12:00 AM"],
+      type: "multiline",
+    },
+  ];
+
+  const quickLinks = [
+    { name: "Home", url: "#" },
+    { name: "Menu", url: "#" },
+    { name: "About Us", url: "#" },
+    { name: "Contact", url: "#" },
+  ];
+
+  const footerLinks = [
+    { name: "Privacy Policy", url: "#" },
+    { name: "Terms of Service", url: "#" },
+  ];
+
   return (
     <footer className="footer-bg lg:h-[30rem] text-gold pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -16,25 +60,16 @@ const Footer = () => {
               ambiance at our restaurant.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gold hover:opacity-50 transition-colors"
-              >
-                <i className="ri-facebook-fill text-xl"></i>
-              </a>
-
-              <a
-                href="#"
-                className="text-gold hover:opacity-50 transition-colors"
-              >
-                <i className="ri-instagram-line text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gold hover:opacity-50 transition-colors"
-              >
-                <i className="ri-youtube-fill text-xl"></i>
-              </a>
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  className="text-gold hover:opacity-50 transition-colors"
+                  aria-label={social.ariaLabel}
+                >
+                  <i className={`${social.icon} text-xl`}></i>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -44,45 +79,38 @@ const Footer = () => {
               Contact Info
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <i className="ri-map-pin-fill text-gold mt-1 mr-3"></i>
-                <span
-                  className="text-white"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  123 Culinary Avenue, Gourmet District, NY 10001
-                </span>
-              </li>
-              <li className="flex items-center">
-                <i className="ri-phone-fill text-gold mr-3"></i>
-                <a
-                  href="tel:+12345678901"
-                  className="text-white hover:text-gold"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  +92 (336) 0018100
-                </a>
-              </li>
-              <li className="flex items-center">
-                <i className="ri-mail-fill text-gold mr-3"></i>
-                <a
-                  href="mailto:shaaavie@gmail.com"
-                  className="text-white hover:text-gold"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  shaaavie@gmail.com
-                </a>
-              </li>
-              <li className="flex items-start">
-                <i className="ri-time-fill text-gold mt-1 mr-3"></i>
-                <div
-                  className="text-white"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  <p>Mon-Fri: 10:00 AM - 12:00 PM</p>
-                  <p>Sat-Sun: 8:00 AM - 12:00 AM</p>
-                </div>
-              </li>
+              {contactInfo.map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <i className={`${item.icon} text-gold mt-1 mr-3`}></i>
+                  {item.type === "text" && (
+                    <span
+                      className="text-white"
+                      style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
+                    >
+                      {item.content}
+                    </span>
+                  )}
+                  {item.type === "link" && (
+                    <a
+                      href={item.url}
+                      className="text-white hover:text-gold"
+                      style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
+                    >
+                      {item.content}
+                    </a>
+                  )}
+                  {item.type === "multiline" && (
+                    <div
+                      className="text-white"
+                      style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
+                    >
+                      {item.content.map((line, i) => (
+                        <p key={i}>{line}</p>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -92,43 +120,17 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-white hover:text-gold transition-colors"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white hover:text-gold transition-colors"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  Menu
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-white hover:text-gold transition-colors"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  About Us
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="text-white hover:text-gold transition-colors"
-                  style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                >
-                  Contact
-                </a>
-              </li>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.url}
+                    className="text-white hover:text-gold transition-colors"
+                    style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -172,24 +174,17 @@ const Footer = () => {
             </p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6">
-                <li>
-                  <a
-                    href="#"
-                    className="text-white hover:text-gold text-sm"
-                    style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-white hover:text-gold text-sm"
-                    style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
-                  >
-                    Terms of Service
-                  </a>
-                </li>
+                {footerLinks.map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.url}
+                      className="text-white hover:text-gold text-sm"
+                      style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.8)" }}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

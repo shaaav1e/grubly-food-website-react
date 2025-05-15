@@ -1,6 +1,6 @@
 import React from "react";
-import restaurant from "../assets/images/restaurant.webp"; 
-import restaurant2 from "../assets/images/restaurant-2.webp"; 
+import restaurant from "/restaurant.webp";
+import restaurant2 from "/restaurant-2.webp";
 import Button from "./Button";
 
 const About = () => {

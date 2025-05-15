@@ -1,4 +1,3 @@
-"use client";
 import { useEffect } from "react";
 const FollowCursor = ({ color = "#EAD39B" }) => {
   useEffect(() => {

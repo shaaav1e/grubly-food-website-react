@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import newLogo from "../assets/images/newlogo.svg"; 
+import newLogo from "/newlogo.svg";
 import Topbar from "./Topbar";
 
 const Header = () => {
@@ -78,10 +78,8 @@ const Header = () => {
                 alt="FoodLife Logo"
                 width="160" // Add explicit width
                 height="40" // Add explicit height
-                
               />
             </picture>
-            
           </a>
 
           {/* Mobile menu toggle */}
@@ -127,11 +125,10 @@ const Header = () => {
                   <picture>
                     <source srcSet={newLogo} type="image/webp" />
                     <img
-                      src={newLogo} 
+                      src={newLogo}
                       alt="FoodLife Logo"
                       width="144" //  explicit width
                       height="36" //  explicit height
-                      
                     />
                   </picture>
                 </a>

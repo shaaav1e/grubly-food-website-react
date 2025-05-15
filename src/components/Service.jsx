@@ -1,7 +1,7 @@
 import React from "react";
-import Breakfast from "../assets/images/breakfast.webp"; 
-import Lunch from "../assets/images/lunch.webp"; 
-import Dinner from "../assets/images/dinner.webp"; 
+import Breakfast from "/breakfast.webp";
+import Lunch from "/lunch.webp";
+import Dinner from "/dinner.webp";
 
 const Service = () => {
   const mealOptions = [
@@ -10,7 +10,7 @@ const Service = () => {
       title: "Breakfast? Yes, Please!",
       description: "Creamy oatmeal topped with fresh blueberries and honey",
       image: Breakfast, // Use the WebP version
-     
+
       alt: "Breakfast meal",
     },
     {
@@ -47,7 +47,7 @@ const Service = () => {
             <div key={meal.id} className="flex flex-col items-center">
               <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[450px] aspect-square mt-5 relative cursor-pointer group">
                 {/* Static border with text */}
-                <div className="absolute inset-0 border border-dashed border-gold opacity-90 flex items-center justify-center"></div>
+                <div className="absolute inset-0  opacity-90 flex items-center justify-center"></div>
 
                 {/* Image container */}
                 <div className="absolute inset-4 overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gold/30">
@@ -57,7 +57,6 @@ const Service = () => {
                       className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-3"
                       src={meal.image}
                       alt={meal.alt}
-                      
                     />
                   </picture>
                 </div>

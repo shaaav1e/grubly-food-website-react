@@ -5,11 +5,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-import heroSlider1 from "../assets/images/hero-slider-1.webp"; 
-import heroSlider5 from "../assets/images/hero-slider-5.webp"; 
-import heroSlider6 from "../assets/images/hero-slider-6.webp"; 
-import heroIcon from "../assets/images/hero-icon.png";
-
+import heroSlider1 from "/hero-slider-1.webp";
+import heroSlider5 from "/hero-slider-5.webp";
+import heroSlider6 from "/hero-slider-6.webp";
+import heroIcon from "/hero-icon.png";
 
 const Hero = () => {
   const sliderItems = [

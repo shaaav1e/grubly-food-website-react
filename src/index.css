@@ -154,7 +154,7 @@ body.nav-active {
 
 /* Adjust spacing for fixed header */
 .slider-content {
-  padding-top: 6rem; /* Adjust based on your header height */
+  padding-top: 6rem; /* header height */
 }
 
 /* Make main content start after hero section */
@@ -177,11 +177,6 @@ h1,h2,h3,h4,h5,h6
 {
   @apply mt-36;
 }
-p
-{
-  
-}
-
 
 
 /* FOOTER */
@@ -207,7 +202,7 @@ p
 }
 
 .footer-bg {
-  background-image: url('/src/assets/images/footer-bg-2.jpg');
+  background-image: url('/footer-bg-2.jpg');
 }
 
 /* Input for Contact */
