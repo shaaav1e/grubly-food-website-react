@@ -45,10 +45,10 @@ const Service = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {mealOptions.map((meal) => (
             <div key={meal.id} className="flex flex-col items-center">
-              <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[450px] aspect-square mt-5 relative cursor-pointer group">
+              <div className="meal-container w-full max-w-[300px] md:max-w-[350px] lg:max-w-[450px] aspect-square mt-5 relative">
                 {" "}
                 {/* Static border with text */}
-                <div className="absolute inset-0 border-2 border-amber-200 opacity-90 flex items-center justify-center"></div>
+                <div className="absolute inset-0 opacity-90 flex items-center justify-center"></div>
                 {/* Image container */}{" "}
                 <div className="absolute inset-4 overflow-hidden transition-all duration-500">
                   <picture>

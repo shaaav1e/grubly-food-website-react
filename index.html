@@ -21,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- DNS prefetch -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" /> -->
 
     <!-- FONTS with display=swap for better performance -->
     <link
@@ -30,41 +30,29 @@
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
-    />    <!-- Preload critical assets -->
-    <link
+    />
+    <!-- Preload critical assets -->
+    <!-- <link
       rel="preload"
       as="image"
       href="/hero-slider-1.webp"
       fetchpriority="high"
-    />
-    <link rel="preload" as="style" href="/src/index.css" />
+    /> -->
+    <!-- <link rel="preload" as="style" href="/src/index.css" />
     <link
       rel="preload"
       href="/newlogo.svg"
       as="image"
       fetchpriority="high"
-    />
+    /> -->
 
     <!-- Add PWA support -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <!-- <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-180.png" /> -->
 
     <!-- Add fetchpriority hints -->
-    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width" />
-    <meta name="image-rendering" content="auto" />
-
-    <!-- Improve LCP -->
-    <script type="module">
-      // Inform browser which elements are LCP candidates
-      const lcpObserver = new PerformanceObserver((entryList) => {
-        // Get the first entry
-        const entries = entryList.getEntries();
-        if (entries[0]) {
-          console.log("LCP element:", entries[0].element);
-        }
-      });
-      lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
-    </script>
+    <!-- <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width" />
+    <meta name="image-rendering" content="auto" /> -->
   </head>
   <body>
     <div id="root"></div>
